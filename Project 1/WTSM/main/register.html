@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    :root {
+      --primary-color: #004aad;
+      --secondary-color: #000000;
+      --text-color: #ffffff;
+      --input-bg-color: #333;
+      --input-border-color: #4aa4ff;
+      --button-bg-color: #07203d;
+      --button-hover-bg-color: #004aad;
+      --button-active-transform: scale(0.95);
+      --button-hover-transform: scale(1.1);
+      --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #e0ecf2;
+      color: var(--text-color);
+    }
+
+    .container {
+      background-color: #42678a;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--box-shadow);
+      width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #20b340;
+      margin-bottom: 20px;
+    }
+
+    form div {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text-color);
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid var(--input-border-color);
+      border-radius: 8px;
+      background: var(--input-bg-color);
+      color: var(--text-color);
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: var(--button-bg-color);
+      color: var(--text-color);
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    button:hover {
+      background: var(--button-hover-bg-color);
+      transform: var(--button-hover-transform);
+    }
+
+    button:active {
+      transform: var(--button-active-transform);
+    }
+
+    .success-message {
+      color: green;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+      <div>
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" placeholder="Enter your name" required>
+      </div>
+      <div>
+        <label for="plotNo">Plot No:</label>
+        <textarea id="plotNo" placeholder="Enter plot details" required></textarea>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div>
+        <label for="aadharNo">Aadhar No:</label>
+        <input type="text" id="aadharNo" placeholder="Enter your Aadhar number" required>
+      </div>
+      <div>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+      </div>
+      <div>
+        <label for="pincode">Zone Pincode:</label>
+        <input type="text" id="pincode" placeholder="Enter zone pincode" required>
+      </div>
+      <button type="submit" id="registerButton">Register</button>
+    </form>
+    <div id="successMessage" class="success-message"></div>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Get form values
+      const fullName = document.getElementById('fullName').value;
+      const plotNo = document.getElementById('plotNo').value;
+      const email = document.getElementById('email').value;
+      const aadharNo = document.getElementById('aadharNo').value;
+      const phone = document.getElementById('phone').value;
+      const pincode = document.getElementById('pincode').value;
+      // Create success message
+      const successMessage = `Registration Successful!`;
+      document.getElementById('successMessage').innerHTML = successMessage;
+
+      // Clear the form after submission
+      document.getElementById('registrationForm').reset();
+    });
+  </script>
+</body>
+</html>

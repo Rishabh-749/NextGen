@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Admission Process Guide</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .section:hover {
+            transform: scale(1.02);
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .highlight {
+            background: #ffcc00;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Engineering Admission Process Guide</h1>
+        
+        <div class="section" id="eligibility">
+            <h2>1. Eligibility Criteria</h2>
+            <p>To be eligible for engineering admissions in Maharashtra, students must:</p>
+            <ul>
+                <li>Pass 12th standard with Physics, Chemistry, and Mathematics (PCM) with minimum marks as per category.</li>
+                <li>Appear for <span class="highlight">MHT-CET</span> or JEE Main (for some private colleges).</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="steps">
+            <h2>2. Admission Process Steps</h2>
+            <p>The admission process follows these steps:</p>
+            <ul>
+                <li><strong>Step 1:</strong> Register on the DTE Maharashtra website.</li>
+                <li><strong>Step 2:</strong> Fill application form & upload required documents.</li>
+                <li><strong>Step 3:</strong> Document verification at Facilitation Centers.</li>
+                <li><strong>Step 4:</strong> Check merit list & cutoff.</li>
+                <li><strong>Step 5:</strong> Participate in CAP Rounds (Centralized Admission Process).</li>
+                <li><strong>Step 6:</strong> Seat allocation & reporting to allotted college.</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="documents">
+            <h2>3. Documents Required</h2>
+            <ul>
+                <li>10th & 12th Marksheet</li>
+                <li>CET/JEE Scorecard</li>
+                <li>School Leaving Certificate</li>
+                <li>Domicile & Caste Certificate (if applicable)</li>
+                <li>Income Certificate (for scholarships & TFWS quota)</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="links">
+            <h2>4. Important Links</h2>
+            <p><a href="https://cetcell.mahacet.org/" target="_blank">MHT-CET Official Website</a></p>
+            <p><a href="https://fe2023.mahacet.org/" target="_blank">DTE Maharashtra Admission Portal</a></p>
+        </div>
+    </div>
+    
+    <script>
+        gsap.from(".container", { duration: 1, opacity: 0, y: -50 });
+        gsap.from(".section", { duration: 1, opacity: 0, y: 30, stagger: 0.3 });
+    </script>
+</body>
+</html>

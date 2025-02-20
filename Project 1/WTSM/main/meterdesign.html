@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Job Opportunities</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        select, button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .job-list {
+            text-align: left;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Engineering Job Opportunities</h2>
+        <label for="branch">Select Engineering Branch:</label>
+        <select id="branch">
+            <option value="cse">Computer Science</option>
+            <option value="mech">Mechanical Engineering</option>
+            <option value="electrical">Electrical Engineering</option>
+            <option value="civil">Civil Engineering</option>
+            <option value="electronics">Electronics & Telecommunication</option>
+            <option value="it">Information Technology</option>
+            <option value="aero">Aeronautical Engineering</option>
+            <option value="chemical">Chemical Engineering</option>
+            <option value="biotech">Biotechnology</option>
+            <option value="auto">Automobile Engineering</option>
+        </select>
+        <button onclick="showJobs()">Show Jobs</button>
+
+        <div id="jobs" class="job-list"></div>
+    </div>
+
+    <script>
+        function showJobs() {
+            var branch = document.getElementById("branch").value;
+            var jobs = {
+                "cse": { "govt": ["ISRO Scientist - ISRO Exam", "DRDO Engineer - DRDO SET"], "private": ["Google - AI Engineer", "Infosys - Software Developer"] },
+                "mech": { "govt": ["Indian Railways Engineer - RRB JE"], "private": ["Tata Motors - Design Engineer"] },
+                "electrical": { "govt": ["Power Grid Engineer - GATE"], "private": ["Siemens - Electrical Engineer"] },
+                "civil": { "govt": ["PWD Engineer - MPSC"], "private": ["L&T - Civil Engineer"] },
+                "electronics": { "govt": ["ISRO Electronics Engineer - ISRO Exam"], "private": ["Samsung - Embedded Engineer"] },
+                "it": { "govt": ["NIC Scientist - NIC Recruitment"], "private": ["TCS - Software Developer"] },
+                "aero": { "govt": ["HAL Engineer - HAL Recruitment"], "private": ["Boeing - Aerospace Engineer"] },
+                "chemical": { "govt": ["ONGC Engineer - GATE"], "private": ["Reliance - Chemical Engineer"] },
+                "biotech": { "govt": ["ICMR Scientist - ICMR Exam"], "private": ["Biocon - Biotech Researcher"] },
+                "auto": { "govt": ["NATRIP Engineer - NATRIP Recruitment"], "private": ["Mahindra - Automobile Engineer"] }
+            };
+            
+            var selectedJobs = jobs[branch];
+            var jobHTML = "<h3>Government Jobs</h3><ul>";
+            selectedJobs["govt"].forEach(job => { jobHTML += `<li>${job}</li>`; });
+            jobHTML += "</ul><h3>Private Jobs</h3><ul>";
+            selectedJobs["private"].forEach(job => { jobHTML += `<li>${job}</li>`; });
+            jobHTML += "</ul>";
+
+            var jobDiv = document.getElementById("jobs");
+            jobDiv.innerHTML = jobHTML;
+            gsap.from("#jobs", { opacity: 0, y: 20, duration: 0.5 });
+        }
+    </script>
+</body>
+</html>
+
+

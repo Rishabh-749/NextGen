@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Usage Calculator</title>
+    <link rel="stylesheet" href="color.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calculator-box {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: #07203d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-box">
+        <h2>Water Usage Calculator</h2>
+        <form id="priceCalculator">
+            <label for="liters">Enter the amount of water in liters:</label>
+            <input type="number" id="liters" name="liters" placeholder="Enter liters" required>
+            <button type="submit">Calculate Price</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('priceCalculator').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const liters = document.getElementById('liters').value;
+            const priceInPaisa = liters * 1;
+            const priceInRupees = priceInPaisa / 100;
+            document.getElementById('result').innerText = `The price of ${liters} liters of water is ${priceInRupees.toFixed(2)} rupees (${priceInPaisa} paisa).`;
+        });
+    </script>
+</body>
+</html>

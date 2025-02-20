@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering College Finder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #004085;
+        }
+        select, input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .results {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Engineering College Finder</h1>
+    <div class="container" id="main-container">
+        <label for="cetPercent">CET Percentage:</label>
+        <input type="number" id="cetPercent" placeholder="Enter CET %" min="0" max="100">
+        
+        <label for="district">Select District:</label>
+        <select id="district">
+            <option value="Pune">Pune</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Nashik">Nashik</option>
+        </select>
+        
+        <label for="branch">Select Branch:</label>
+        <select id="branch">
+            <option value="Computer Science">Computer Science</option>
+            <option value="Mechanical">Mechanical</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Civil">Civil</option>
+            <option value="IT">Information Technology</option>
+            <option value="Electrical">Electrical</option>
+        </select>
+        
+        <button onclick="findColleges()">Search</button>
+        
+        <div class="results" id="results"></div>
+    </div>
+    
+    <script>
+        gsap.from("#title", { duration: 1.5, y: -50, opacity: 0, ease: "bounce" });
+        gsap.from("#main-container", { duration: 1.5, scale: 0.8, opacity: 0, ease: "power2.out" });
+        
+        function findColleges() {
+            let cetPercent = document.getElementById('cetPercent').value;
+            let district = document.getElementById('district').value;
+            let branch = document.getElementById('branch').value;
+            let resultsDiv = document.getElementById('results');
+            
+            resultsDiv.innerHTML = `<h2>Colleges Available in ${district} for ${branch} (CET %: ${cetPercent})</h2>`;
+            
+            let colleges = {
+                "Pune": {
+                    "Computer Science": ["COEP Pune", "MIT Pune", "VIIT Pune", "BVP Pune", "DY Patil Pune", "VIT Pune", "AISSMS Pune", "PCCOE Pune", "JSPM Pune", "Sinhgad Institute Pune"],
+                    "Mechanical": ["COEP Pune", "MIT Pune", "VIIT Pune", "AISSMS Pune", "PCCOE Pune", "DY Patil Pune", "Sinhgad Institute Pune", "JSPM Pune", "VIT Pune", "BVP Pune"],
+                    "Electronics": ["COEP Pune", "MIT Pune", "VIIT Pune", "AISSMS Pune", "BVP Pune", "DY Patil Pune", "PCCOE Pune", "Sinhgad Institute Pune", "JSPM Pune", "VIT Pune"],
+                    "Civil": ["COEP Pune", "MIT Pune", "VIIT Pune", "AISSMS Pune", "PCCOE Pune", "DY Patil Pune", "Sinhgad Institute Pune", "JSPM Pune", "VIT Pune", "BVP Pune"],
+                    "IT": ["COEP Pune", "MIT Pune", "VIIT Pune", "AISSMS Pune", "BVP Pune", "DY Patil Pune", "PCCOE Pune", "Sinhgad Institute Pune", "JSPM Pune", "VIT Pune"],
+                    "Electrical": ["COEP Pune", "MIT Pune", "VIIT Pune", "AISSMS Pune", "PCCOE Pune", "DY Patil Pune", "Sinhgad Institute Pune", "JSPM Pune", "VIT Pune", "BVP Pune"]
+                },
+                "Mumbai": {
+                    "Computer Science": ["VJTI Mumbai", "DJ Sanghvi", "SPIT Mumbai", "KJ Somaiya", "Thakur College", "RAIT Navi Mumbai", "Fr. Agnel Mumbai", "Xavier Institute", "SIES Graduate School", "Mukesh Patel College"],
+                    "Mechanical": ["VJTI Mumbai", "SPCE Mumbai", "KJ Somaiya", "Fr. Agnel Mumbai", "Thakur College", "RAIT Navi Mumbai", "SIES Graduate School", "DJ Sanghvi", "SPIT Mumbai", "Mukesh Patel College"],
+                    "Electronics": ["VJTI Mumbai", "KJ Somaiya", "SPIT Mumbai", "RAIT Navi Mumbai", "Thakur College", "Fr. Agnel Mumbai", "Xavier Institute", "SIES Graduate School", "Mukesh Patel College", "DJ Sanghvi"],
+                    "Civil": ["VJTI Mumbai", "SPCE Mumbai", "KJ Somaiya", "Thakur College", "Fr. Agnel Mumbai", "RAIT Navi Mumbai", "SIES Graduate School", "DJ Sanghvi", "SPIT Mumbai", "Mukesh Patel College"],
+                    "IT": ["VJTI Mumbai", "KJ Somaiya", "DJ Sanghvi", "SPIT Mumbai", "Thakur College", "RAIT Navi Mumbai", "Fr. Agnel Mumbai", "Xavier Institute", "SIES Graduate School", "Mukesh Patel College"],
+                    "Electrical": ["VJTI Mumbai", "SPCE Mumbai", "KJ Somaiya", "Thakur College", "Fr. Agnel Mumbai", "RAIT Navi Mumbai", "SIES Graduate School", "DJ Sanghvi", "SPIT Mumbai", "Mukesh Patel College"]
+                }
+            };
+            
+            let filteredColleges = colleges[district][branch] || ["No colleges found for this selection."];
+            
+            resultsDiv.innerHTML += `<ul>${filteredColleges.map(college => `<li>${college}</li>`).join('')}</ul>`;
+            gsap.from(".results h2, .results ul", { duration: 1, opacity: 0, y: 20, stagger: 0.2 });
+        }
+    </script>
+</body>
+</html>

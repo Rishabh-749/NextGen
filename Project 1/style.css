@@ -1,0 +1,382 @@
+@font-face {
+    font-family: japan;
+    src: url(./3856NeueMachina.woff2);
+}
+
+:root{
+    --primary-color: #15262e;
+    --bg-color:#e0ecf2;
+    --btn-color:#07203d;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    color: var(--primary-color);
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: var(--bg-color);
+}
+
+section{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 37px 60px;
+}
+
+nav .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+nav .logo i{
+    font-size: 38px;
+    display: inline-block;
+    /* rotate: 58deg; */
+    color: rgb(1, 93, 138);
+}
+
+nav h1{
+    font-size: 42px;
+}
+
+nav h4{
+    font-size: 20px;
+    font-weight: 500
+}
+
+nav button{
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 7px;
+    border: 1px solid var(--btn-color);
+}
+
+.part-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.center{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    padding: 40px 62px 0px 62px;
+    box-sizing: border-box;
+}
+
+.center .center-1{
+    height: 100%;
+    width: 45%;
+}
+
+.center .center-2{
+    height: 100%;
+    width: 55%;
+    position: relative;
+}
+
+.center .center-1 h1{
+    font-size: 56px;
+    line-height: 1.2;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: japan;
+}
+
+.center .center-1 p{
+    margin: 30px 0px;
+    font-size: 18px;
+    width: 95%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.center .center-1 button{
+    padding: 14px 29px;
+    font-size: 18px;
+    border-radius: 7px;
+    background-color: var(--btn-color);
+    color: white;
+}
+
+.center .center-2 img{
+    /* height: 100%; */
+    position: absolute;
+    right: 0;
+    object-fit: cover;
+}
+
+.section-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0px 62px 30px 62px;
+    gap: 20px;
+}
+
+.section-bottom img{
+    height: 90px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
+
+.slide{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+}
+
+.services{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 62px;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.services h3{
+    font-family: japan;
+    background-color: rgb(72,183,96);
+    padding: 4px 10px 0px 10px;
+    font-size: 40px;
+}
+
+.services p{
+    font-size: 20px;
+    width: 50%;
+    font-weight: 500;
+}
+
+.container{
+    box-sizing: border-box;
+    height: 72%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px 62px 0px 62px;
+    gap: 30px;
+}
+
+.container .box{
+    box-sizing: border-box;
+    flex-shrink: 0;
+    border: 2.5px solid black;
+    height: 260px;
+    width: 48%;
+    border-radius: 20px;
+    box-shadow: 0px 10px 0px black;
+    padding: 40px;
+    font-size: 12px;
+    font-weight: 200;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.box .b-p-1{
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 50%; 
+}
+
+.box .b-p-1 h2{
+    background-color: rgb(72,183,96);
+    font-family: japan;
+    width: 70%;
+    border-radius: 12px;
+    padding: 5px 10px;
+}
+
+.box .b-p-1 h4 i{
+    background-color: black;
+    color: aliceblue;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.box .b-p-1 h4{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+}
+
+.box .b-p-1 h4 a{
+    text-decoration: none;
+}
+
+.box .q h4 a{
+    color: white;
+}
+
+.box .b-p-2{
+    height: 100%;
+    width: 50%;
+}
+
+.box .b-p-2 img{
+    height: 100%;
+    width: 100%;
+}
+
+.black{
+    background-color: black;
+}
+
+.black .b-p-1 h2{
+    background-color: white;
+}
+
+.black .b-p-1 h4{
+    color: white;
+}
+
+.black .b-p-1 h4 i{
+    background-color: white;
+    color: black;
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+    padding: 62px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.sec-3 .container-2{
+    height: 36%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    background-color: rgba(211, 211, 211, 0.512);    
+}
+
+.sec-3 .container-2 .box-1{
+    width: 50%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+
+.sec-3 .container-2 .box-1 h1{
+    font-family: japan;
+    width: 70%;
+    border-radius: 12px;
+    padding: 5px 0px;  
+}
+
+.sec-3 .container-2 .box-1 p{
+    padding: 14px 0px;
+    font-size: 15px;
+    border-radius: 7px;
+    width: 70%;
+    color: rgb(91, 87, 87);
+}
+
+.sec-3 .container-2 .box-1 button{
+    padding: 12px 26px;
+    font-size: 16px;
+    border-radius: 7px;
+    background-color: black;
+    color: white;
+}
+
+.sec-3 .container-2 .box-2{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec-3 .container-2 .box-2 img{
+    height: 120%;
+    width: 45%;
+}
+
+.middle{
+    padding: 0;
+}
+
+.bottom-f{
+    background-color: rgb(26, 25, 25) !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px  40px;
+    box-sizing: border-box;
+}
+
+.card-1{
+    height: 100%;
+    width: 31%;
+}
+.card-2{
+    height: 100%;
+    width: 31%;
+}
+.card-3{
+    height: 100%;
+    width: 31%  ;
+}
+.seprate{
+    height: 100%;
+    width: 2px;
+    background-color: aliceblue;
+}
+
+.bottom-f .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+}
+
+.bottom-f .card p{
+    width: 80%;
+}
+
+.bottom-f .card h4 {
+    color: rgb(67, 206, 67);
+    text-decoration: none;
+}
+.bottom-f .card h4 a{
+    color: rgb(67, 206, 67);
+    text-decoration: none;
+}
+
+.bottom-f .card h4 a i{
+    color: rgb(67, 206, 67);
+    text-decoration: none;
+}

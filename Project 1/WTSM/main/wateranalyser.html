@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polytechnic College Finder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #004085;
+        }
+        select, input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .results {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .results li {
+            background: #e8e8e8;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Polytechnic College Finder</h1>
+    <div class="container">
+        <label for="cetPercent">CET Percentage:</label>
+        <input type="number" id="cetPercent" placeholder="Enter CET %" min="0" max="100">
+        
+        <label for="district">Select District:</label>
+        <select id="district">
+            <option value="Pune">Pune</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Nashik">Nashik</option>
+        </select>
+        
+        <label for="branch">Select Branch:</label>
+        <select id="branch">
+            <option value="Computer Engineering">Computer Engineering</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Electronics Engineering">Electronics Engineering</option>
+            <option value="IT">Information Technology</option>
+        </select>
+        
+        <button onclick="findColleges()">Search</button>
+        
+        <div class="results" id="results"></div>
+    </div>
+    
+    <script>
+        function findColleges() {
+            let cetPercent = parseFloat(document.getElementById('cetPercent').value);
+            let district = document.getElementById('district').value;
+            let branch = document.getElementById('branch').value;
+            let resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<h2>Polytechnic Colleges in ${district} for ${branch} (CET %: ${cetPercent})</h2>`;
+            
+            let colleges = {
+                "Pune": ["MIT Polytechnic", "Cusrow Wadia Institute", "Government Polytechnic Pune", "Zeal Polytechnic", "D.Y. Patil Polytechnic", "Sinhgad Polytechnic", "SB Patil Polytechnic", "All India Shri Shivaji Memorial Society Polytechnic", "Modern Polytechnic", "Samarth Polytechnic", "Trinity Polytechnic", "Vishwakarma Polytechnic", "PDEA Polytechnic", "Rajarshi Shahu Polytechnic", "Vidya Pratishthan Polytechnic", "Navsahyadri Polytechnic", "Genba Sopanrao Moze Polytechnic", "Sharad Institute of Technology", "ICEM Polytechnic", "MIT ADT Polytechnic"],
+                "Mumbai": ["VJTI Polytechnic", "Government Polytechnic Mumbai", "Thakur Polytechnic", "KJ Somaiya Polytechnic", "Don Bosco Polytechnic", "Rizvi Polytechnic", "Anjuman Islam Polytechnic", "MH Saboo Siddik Polytechnic", "Vidyalankar Polytechnic", "Bhavan's Polytechnic", "Atharva Polytechnic", "Nirmala Polytechnic", "L&T Polytechnic", "Fr Agnel Polytechnic", "Kalsekar Polytechnic", "Hinduja Polytechnic", "Shreeram Polytechnic", "Lokmanya Tilak Polytechnic", "YTI Polytechnic", "KBP Polytechnic"],
+                "Nashik": ["Government Polytechnic Nashik", "K.K. Wagh Polytechnic", "MET Polytechnic", "Nashik Polytechnic", "Sandip Polytechnic", "Guru Gobind Singh Polytechnic", "Shatabdi Institute of Technology", "Samarth Polytechnic Nashik", "Loknete Gopinathji Munde Polytechnic", "Shree Sairam Polytechnic", "KK Wagh Women’s Polytechnic", "Bhujbal Knowledge City Polytechnic", "SVIT Polytechnic", "RSM Polytechnic", "KKWIEER Polytechnic", "Vidya Pratishthan Polytechnic Nashik", "MVP Polytechnic", "Samyak Polytechnic", "KKSU Polytechnic", "Navjeevan Polytechnic"]
+            };
+            
+            let filteredColleges = colleges[district] || [];
+            
+            if (filteredColleges.length === 0) {
+                resultsDiv.innerHTML += `<p>No colleges found for the selected criteria.</p>`;
+            } else {
+                resultsDiv.innerHTML += `<ul>${filteredColleges.map(college => `<li>${college}</li>`).join('')}</ul>`;
+            }
+            
+            gsap.from(".results li", {opacity: 0, y: 50, duration: 1, stagger: 0.1});
+        }
+    </script>
+</body>
+</html>
+

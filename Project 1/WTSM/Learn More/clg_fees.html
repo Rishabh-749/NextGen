@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Fee Information</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #007bff;
+            color: white;
+        }
+        .filter {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>College Fee Information Based on Caste</h1>
+        <div class="filter">
+            <label for="caste">Select Caste:</label>
+            <select id="caste" onchange="filterColleges()">
+                <option value="all">All</option>
+                <option value="Open">Open</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="NT">NT</option>
+            </select>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>College Name</th>
+                    <th>City</th>
+                    <th>Fees (INR)</th>
+                    <th>Caste Category</th>
+                </tr>
+            </thead>
+            <tbody id="collegeTable">
+                <tr data-caste="Open">
+                    <td>COEP Technological University</td>
+                    <td>Pune</td>
+                    <td>1,20,000</td>
+                    <td>Open</td>
+                </tr>
+                <tr data-caste="OBC">
+                    <td>VJTI Mumbai</td>
+                    <td>Mumbai</td>
+                    <td>80,000</td>
+                    <td>OBC</td>
+                </tr>
+                <tr data-caste="SC">
+                    <td>Walchand College of Engineering</td>
+                    <td>Sangli</td>
+                    <td>40,000</td>
+                    <td>SC</td>
+                </tr>
+                <tr data-caste="ST">
+                    <td>MIT Academy of Engineering</td>
+                    <td>Pune</td>
+                    <td>30,000</td>
+                    <td>ST</td>
+                </tr>
+                <tr data-caste="NT">
+                    <td>PCCOE Pune</td>
+                    <td>Pune</td>
+                    <td>60,000</td>
+                    <td>NT</td>
+                </tr>
+                <!-- Adding 60 more colleges -->
+                <tr data-caste="Open">
+                    <td>MIT-WPU</td>
+                    <td>Pune</td>
+                    <td>1,50,000</td>
+                    <td>Open</td>
+                </tr>
+                <tr data-caste="OBC">
+                    <td>DY Patil College of Engineering</td>
+                    <td>Pimpri</td>
+                    <td>90,000</td>
+                    <td>OBC</td>
+                </tr>
+                <tr data-caste="SC">
+                    <td>Amrutvahini College of Engineering</td>
+                    <td>Sangamner</td>
+                    <td>35,000</td>
+                    <td>SC</td>
+                </tr>
+                <tr data-caste="ST">
+                    <td>Rajiv Gandhi Institute of Technology</td>
+                    <td>Mumbai</td>
+                    <td>45,000</td>
+                    <td>ST</td>
+                </tr>
+                <tr data-caste="NT">
+                    <td>VIT Pune</td>
+                    <td>Pune</td>
+                    <td>70,000</td>
+                    <td>NT</td>
+                </tr>
+                <tr data-caste="Open">
+                    <td>KJ Somaiya College of Engineering</td>
+                    <td>Mumbai</td>
+                    <td>1,25,000</td>
+                    <td>Open</td>
+                </tr>
+                <tr data-caste="OBC">
+                    <td>Shivaji University</td>
+                    <td>Kolhapur</td>
+                    <td>55,000</td>
+                    <td>OBC</td>
+                </tr>
+                <tr data-caste="SC">
+                    <td>Sandip University</td>
+                    <td>Nashik</td>
+                    <td>50,000</td>
+                    <td>SC</td>
+                </tr>
+                <tr data-caste="ST">
+                    <td>Bharati Vidyapeeth College of Engineering</td>
+                    <td>Pune</td>
+                    <td>60,000</td>
+                    <td>ST</td>
+                </tr>
+                <tr data-caste="NT">
+                    <td>Sinhgad College of Engineering</td>
+                    <td>Pune</td>
+                    <td>65,000</td>
+                    <td>NT</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function filterColleges() {
+            let selectedCaste = document.getElementById("caste").value;
+            let rows = document.querySelectorAll("#collegeTable tr");
+            rows.forEach(row => {
+                let caste = row.getAttribute("data-caste");
+                if (selectedCaste === "all" || caste === selectedCaste) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        gsap.from(".container", { duration: 1, opacity: 0, y: -50 });
+        gsap.from("table", { duration: 1, opacity: 0, y: 30, stagger: 0.3 });
+    </script>
+</body>
+</html>
+
+

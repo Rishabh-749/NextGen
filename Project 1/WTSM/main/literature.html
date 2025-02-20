@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Branch Interest Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            opacity: 0;
+        }
+        h1 {
+            color: #004085;
+            opacity: 0;
+        }
+        .question {
+            margin-bottom: 15px;
+            opacity: 0;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            opacity: 0;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Engineering Branch Interest Test</h1>
+    <div class="container">
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Which subjects do you enjoy the most?</p>
+                <input type="radio" name="q1" value="CS"> Computers and Programming<br>
+                <input type="radio" name="q1" value="ME"> Machines and Mechanics<br>
+                <input type="radio" name="q1" value="EE"> Electrical Systems and Energy<br>
+                <input type="radio" name="q1" value="CE"> Construction and Building Design<br>
+            </div>
+            <div class="question">
+                <p>2. What type of problems do you like solving?</p>
+                <input type="radio" name="q2" value="CS"> Software and Algorithmic problems<br>
+                <input type="radio" name="q2" value="ME"> Machine and Hardware Design problems<br>
+                <input type="radio" name="q2" value="EE"> Energy Management and Wiring issues<br>
+                <input type="radio" name="q2" value="CE"> Building and Road Construction issues<br>
+            </div>
+            <div class="question">
+                <p>3. In which field do you want to build your career?</p>
+                <input type="radio" name="q3" value="CS"> Software Development in IT Companies<br>
+                <input type="radio" name="q3" value="ME"> Automobile or Manufacturing Industry<br>
+                <input type="radio" name="q3" value="EE"> Energy Production or Electronics Sector<br>
+                <input type="radio" name="q3" value="CE"> Construction Industry or Architectural Design<br>
+            </div>
+            <button type="button" onclick="calculateResult()">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        gsap.to("h1", { opacity: 1, y: -10, duration: 1 });
+        gsap.to(".container", { opacity: 1, duration: 1.5, delay: 0.5 });
+        gsap.to(".question", { opacity: 1, stagger: 0.5, delay: 1 });
+        gsap.to("button", { opacity: 1, duration: 1, delay: 1.5 });
+
+        function calculateResult() {
+            let scores = { CS: 0, ME: 0, EE: 0, CE: 0 };
+            let form = document.getElementById('quizForm');
+            let answers = form.elements;
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i].checked) {
+                    scores[answers[i].value]++;
+                }
+            }
+            let maxBranch = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            let branchNames = { CS: "Computer Science", ME: "Mechanical Engineering", EE: "Electrical Engineering", CE: "Civil Engineering" };
+            document.getElementById('result').innerHTML = `<h2>Based on your interests, you can consider pursuing ${branchNames[maxBranch]}!</h2>`;
+            gsap.to("#result", { opacity: 1, duration: 1 });
+        }
+    </script>
+</body>
+</html>

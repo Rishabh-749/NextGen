@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship & Financial Aid Information</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .section:hover {
+            transform: scale(1.02);
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .highlight {
+            background: #ffcc00;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scholarship & Financial Aid Information</h1>
+        
+        <div class="section" id="gov-scholarships">
+            <h2>1. Government Scholarships</h2>
+            <ul>
+                <li>Rajarshi Shahu Maharaj Scholarship</li>
+                <li>Post Matric Scholarship for OBC, SC, ST Students</li>
+                <li>Dr. Panjabrao Deshmukh Hostel Maintenance Allowance</li>
+                <li>TFWS (Tuition Fee Waiver Scheme)</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="private-scholarships">
+            <h2>2. Private Scholarships</h2>
+            <ul>
+                <li>Tata Trust Scholarship</li>
+                <li>L&T Build India Scholarship</li>
+                <li>Jindal Foundation Scholarship</li>
+                <li>Reliance Foundation Scholarship</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="merit-need">
+            <h2>3. Merit-Based & Need-Based Scholarships</h2>
+            <p>Students can apply for scholarships based on academic performance and financial background.</p>
+            <ul>
+                <li>Merit-based: Based on MHT-CET/JEE scores.</li>
+                <li>Need-based: For students from economically weaker sections.</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="application-process">
+            <h2>4. Application Process</h2>
+            <p>Follow these steps to apply for scholarships:</p>
+            <ul>
+                <li>Check eligibility criteria.</li>
+                <li>Register on the <a href="https://mahadbt.maharashtra.gov.in/" target="_blank">MahaDBT Portal</a>.</li>
+                <li>Fill the application form and upload necessary documents.</li>
+                <li>Submit and track application status.</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="important-links">
+            <h2>5. Important Links</h2>
+            <p><a href="https://mahadbt.maharashtra.gov.in/" target="_blank">MahaDBT Scholarship Portal</a></p>
+            <p><a href="https://scholarships.gov.in/" target="_blank">National Scholarship Portal</a></p>
+        </div>
+    </div>
+    
+    <script>
+        gsap.from(".container", { duration: 1, opacity: 0, y: -50 });
+        gsap.from(".section", { duration: 1, opacity: 0, y: 30, stagger: 0.3 });
+    </script>
+</body>
+</html>
+
+
